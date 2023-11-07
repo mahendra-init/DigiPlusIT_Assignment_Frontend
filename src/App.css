@@ -28,6 +28,22 @@
   color: #61dafb;
 }
 
+.addbtn {
+  margin: 20px;
+  padding: 3px;
+}
+
+.addnewdata{
+  display: flex;
+  flex-direction: column;
+}
+
+.addnewdata input, .addnewdata button {
+  margin: 5px;
+  padding: 3px;
+  font: 1em sans-serif;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
