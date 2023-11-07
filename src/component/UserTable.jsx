@@ -67,23 +67,26 @@ const UserTable = () => {
 
     if (isEditing) {
       // Perform update logic
-      fetch(`http://localhost:4000/user/update/${row_num}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          ...newUserEntry,
-          row_num,
-        }),
-      })
+      fetch(
+        `https://mahendra-digiplusit-api.onrender.com/user/update/${row_num}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            ...newUserEntry,
+            row_num,
+          }),
+        }
+      )
         .then((res) => res.json())
         .then((userData) => {
           setData(userData.data);
         });
     } else {
       // Perform add logic
-      fetch("http://localhost:4000/user/add", {
+      fetch("https://mahendra-digiplusit-api.onrender.com/user/add", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -104,12 +107,15 @@ const UserTable = () => {
   };
 
   const handleDelete = (row_num) => {
-    fetch(`http://localhost:4000/user/delete/${row_num}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://mahendra-digiplusit-api.onrender.com/user/delete/${row_num}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((userData) => {
         setData(userData.data);
@@ -132,7 +138,7 @@ const UserTable = () => {
   }, []);
 
   const fetchUserData = () => {
-    fetch("http://localhost:4000/user/list")
+    fetch("https://mahendra-digiplusit-api.onrender.com/user/list")
       .then((response) => response.json())
       .then((userData) => {
         setData(userData);
